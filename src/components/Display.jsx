@@ -1,4 +1,4 @@
-import { useGet } from './useGet';
+import { useGet } from '../hooks/useGet';
 
 function Display() {
 	const { data, error, isLoading } = useGet();

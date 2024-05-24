@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useUploadFiles } from './useUploadFiles';
 import toast from 'react-hot-toast';
+import { useUploadFiles } from '../hooks/useUploadFiles';
 
 function Upload() {
 	const { UploadFiles, isLoading } = useUploadFiles();
@@ -8,13 +8,13 @@ function Upload() {
 
 	const handleClick = (e) => {
 		e.preventDefault();
-		toast.promise(UploadFiles({ images }), {
-			loading: 'Uploading...',
-			success: <b>Thank you for sharing your memory with us!!</b>,
-			error: <b>Could not upload files.</b>,
-		});
-		// console.log(images);
-		// if (images.length > 0) UploadFiles({ images });
+		if (images.length > 0)
+			toast.promise(UploadFiles({ images }), {
+				loading: 'Uploading...',
+				success: <b>Thank you for sharing your memory with us!!</b>,
+				error: <b>Could not upload files.</b>,
+			});
+		else toast.error('Please select a photo first');
 	};
 
 	return (

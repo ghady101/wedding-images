@@ -9,11 +9,12 @@ export async function uploadFileApi({ images }) {
 			.replaceAll('/', '')
 			.replaceAll(' ', '');
 
-		const image_url = `${supabaseUrl}/storage/v1/object/public/weddings/${fileName}`;
+		const type = file.type.split('/')[0];
+		const url = `${supabaseUrl}/storage/v1/object/public/weddings/${fileName}`;
 
 		const { error } = await supabase
 			.from('Images')
-			.insert([{ image_url }])
+			.insert([{ type, url }])
 			.select()
 			.single();
 
@@ -28,7 +29,7 @@ export async function uploadFileApi({ images }) {
 				.upload(fileName, file);
 
 			if (error) {
-				await supabase.from('Images').delete().eq('image_url', image_url);
+				await supabase.from('Images').delete().eq('url', url);
 				throw new Error(
 					`Image ${index + 1} could not be uploaded: ${error.message}`
 				);
@@ -50,12 +51,11 @@ export async function uploadFileApi({ images }) {
 }
 
 export async function getFiles() {
-	let { data, error } = await supabase.from('Images').select('image_url');
-	// console.log(data);
+	let { data, error } = await supabase.from('Images').select('*');
 
 	if (error) {
 		console.error(error);
-		throw new Error('images could not be loaded');
+		throw new Error('Files could not be loaded');
 	}
 
 	return data;
