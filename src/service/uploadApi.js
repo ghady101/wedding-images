@@ -12,11 +12,7 @@ export async function uploadFileApi({ images }) {
 		const type = file.type.split('/')[0];
 		const url = `${supabaseUrl}/storage/v1/object/public/weddings/${fileName}`;
 
-		const { error } = await supabase
-			.from('Images')
-			.insert([{ type, url }])
-			.select()
-			.single();
+		const { error } = await supabase.from('Images').insert([{ type, url }]);
 
 		if (error) {
 			console.error(error);
@@ -30,9 +26,7 @@ export async function uploadFileApi({ images }) {
 
 			if (error) {
 				await supabase.from('Images').delete().eq('url', url);
-				throw new Error(
-					`Image ${index + 1} could not be uploaded: ${error.message}`
-				);
+				throw new Error(`Image ${index + 1} could not be uploaded`);
 			}
 			return { fileName, success: true };
 		} catch (error) {

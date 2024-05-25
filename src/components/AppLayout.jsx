@@ -8,9 +8,7 @@ function AppLayout() {
 
 	return (
 		<div className='app'>
-			<main>
-				<Outlet />
-			</main>
+			<Outlet />
 
 			<footer className='footer'>
 				{flip ? (

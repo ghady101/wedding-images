@@ -31,13 +31,17 @@ function Upload() {
 	return (
 		<div className='upload'>
 			<input
-				className='custom-file-input'
+				// className='file-input'
+				id='fileInput'
 				type='file'
 				accept='image/*,video/*'
 				multiple
 				onChange={(e) => setImages(e.target.files)}
+				style={{ display: 'none' }}
 			/>
-
+			<label htmlFor='fileInput' className='file-input-label'>
+				Choose Files
+			</label>
 			<button onClick={handleClick} disabled={isLoading}>
 				{isLoading ? 'Uploading...' : 'Upload'}
 			</button>

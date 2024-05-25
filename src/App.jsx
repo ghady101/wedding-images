@@ -7,6 +7,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import SpinnerFullPage from './components/loading/SpinnerFullPage';
 import AppLayout from './components/AppLayout';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import Protected from './components/Protected';
 
 const App = () => {
 	const queryClient = new QueryClient({
@@ -27,7 +28,15 @@ const App = () => {
 							<Route index element={<Navigate replace to='upload' />} />
 
 							<Route index path='upload' element={<Upload />} />
-							<Route index path='display' element={<Display />} />
+							<Route
+								index
+								path='display'
+								element={
+									<Protected>
+										<Display />
+									</Protected>
+								}
+							/>
 						</Route>
 					</Routes>
 
@@ -58,17 +67,3 @@ const App = () => {
 };
 
 export default App;
-
-{
-	/* <div>
-				<div>
-				<button onClick={() => setToUpload(true)} disabled={toUpload}>
-				Upload
-				</button>
-				<button onClick={() => setToUpload(false)} disabled={!toUpload}>
-				Display
-				</button>
-				</div>
-				{toUpload ? <Upload /> : <Display />}
-			</div> */
-}
