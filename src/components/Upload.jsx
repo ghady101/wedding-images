@@ -34,6 +34,7 @@ function Upload() {
 				// className='file-input'
 				id='fileInput'
 				type='file'
+				maxLength={10240}
 				accept='image/*,video/*'
 				multiple
 				onChange={(e) => setImages(e.target.files)}
