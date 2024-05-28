@@ -29,9 +29,8 @@ const App = () => {
 							<Route element={<AppLayout />}>
 								<Route index element={<Navigate replace to='upload' />} />
 
-								<Route index path='upload' element={<Upload />} />
+								<Route path='upload' element={<Upload />} />
 								<Route
-									index
 									path='display'
 									element={
 										<Protected>
