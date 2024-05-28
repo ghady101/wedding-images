@@ -28,7 +28,7 @@ function AppLayout() {
 						color='#73AD21'
 						onClick={() => {
 							setFlip((prev) => !prev);
-							navigate('/');
+							navigate('display');
 						}}
 					/>
 				)}
