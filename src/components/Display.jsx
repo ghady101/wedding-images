@@ -1,11 +1,20 @@
 import { useGet } from '../hooks/useGet';
+import SpinnerFullPage from './loading/SpinnerFullPage';
+import { saveAs } from 'file-saver';
 
 function Display() {
 	const { data, error, isLoading } = useGet();
-	const numbers = Array.from({ length: 10 }, (_, index) => index + 1);
-	if (isLoading) return <div>loading...</div>;
+	if (isLoading) return <SpinnerFullPage />;
 
 	if (error) return <div>{error.message}</div>;
+
+	function handleClick(url, type) {
+		// TODO
+		const name = url.split('-')[0];
+		const extension = url.split('.')[1];
+		const image = name.concat('jpg');
+		saveAs(url, image);
+	}
 
 	return (
 		<div className='display'>
@@ -15,14 +24,24 @@ function Display() {
 						return (
 							<div key={i} className='card'>
 								<img src={image?.url} />
-								<button className='download'>download</button>
+								<button
+									className='download'
+									onClick={() => handleClick(image?.url, 'jpg')}
+								>
+									download
+								</button>
 							</div>
 						);
 					if (image.type === 'video')
 						return (
 							<div key={i} className='card'>
 								<video src={image?.url} />
-								<button className='download'>download</button>
+								<button
+									className='download'
+									onClick={() => handleClick(image?.url, 'mp4')}
+								>
+									download
+								</button>
 							</div>
 						);
 				})}

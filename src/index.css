@@ -48,6 +48,7 @@ body {
 .upload>button,
 .card button {
     color: white;
+    cursor: pointer;
     font-size: 1.1rem;
     font-weight: 500;
     padding: 10px;
@@ -64,8 +65,9 @@ body {
 }
 
 .display {
+    overflow-x: hidden;
     width: 100%;
-    overflow: scroll;
+    /* overflow: scroll; */
     height: 100%;
 }
 
@@ -98,6 +100,7 @@ body {
 
 .download {
     margin: 10px;
+    cursor: pointer;
 }
 
 .footer {

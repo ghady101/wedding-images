@@ -14,7 +14,7 @@ function AppLayout() {
 				{flip ? (
 					<HiArrowUpOnSquare
 						style={{ cursor: 'pointer' }}
-						size={'24px'}
+						size={'36px'}
 						color='#73AD21'
 						onClick={() => {
 							setFlip((prev) => !prev);
@@ -24,7 +24,7 @@ function AppLayout() {
 				) : (
 					<HiCamera
 						style={{ cursor: 'pointer ' }}
-						size={'24px'}
+						size={'36px'}
 						color='#73AD21'
 						onClick={() => {
 							setFlip((prev) => !prev);

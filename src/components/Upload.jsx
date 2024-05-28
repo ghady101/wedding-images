@@ -21,9 +21,8 @@ function Upload() {
 				{
 					loading: 'Uploading...',
 					success: <b>Thank you for sharing your memory with us!!</b>,
-					error: <b>Could not upload files.</b>,
-				},
-				{ duration: 3000 }
+					error: <b>Could not upload files. Try again later</b>,
+				}
 			);
 		else toast.error('Please select a photo/video first');
 	};

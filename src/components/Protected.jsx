@@ -1,19 +1,18 @@
-import { useState } from 'react';
+import { useKey } from '../context/KeyContext';
 
-// eslint-disable-next-line react/prop-types
 function Protected({ children }) {
-	const [pass, setPass] = useState('');
+	const { key, setKey } = useKey();
 
-	if (pass === 'the key') return children;
+	if (key === '123') return children;
 
 	return (
 		<form>
 			<input
 				className='protected-input'
 				type='password'
-				value={pass}
+				value={key}
 				placeholder='Enter the key'
-				onChange={(e) => setPass(e.target.value)}
+				onChange={(e) => setKey(e.target.value)}
 			/>
 		</form>
 	);
