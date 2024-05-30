@@ -35,7 +35,7 @@ function Display() {
 					if (image.type === 'video')
 						return (
 							<div key={i} className='card'>
-								<video src={image?.url} />
+								<video src={image?.url} controls />
 								<button
 									className='download'
 									onClick={() => handleClick(image?.url, 'mp4')}
