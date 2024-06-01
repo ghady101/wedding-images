@@ -10,9 +10,10 @@ function Display() {
 
 	function handleClick(url, type) {
 		// TODO
-		const name = url.split('-')[0];
-		const extension = url.split('.')[1];
-		const image = name.concat('jpg');
+		// const extension = url.split('.')[1];
+		// const image = name.concat('jpg');
+		const indexOfDash = url.indexOf('-');
+		const image = url.substring(indexOfDash + 1);
 		saveAs(url, image);
 	}
 
