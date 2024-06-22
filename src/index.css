@@ -5,11 +5,12 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     background-color: #333;
     height: 100vh;
     width: 100vw;
-    /* overflow: hidden; */
+    overflow-x: hidden;
 }
 
 .app {
@@ -65,7 +66,6 @@ body {
 }
 
 .display {
-    overflow-x: hidden;
     width: 100%;
     height: 100%;
 }
@@ -114,7 +114,6 @@ body {
 .protected-input {
     padding: 7px;
     border-radius: 8px;
-    outline: none;
     border: none;
     border-bottom: 1px solid #73AD21 !important;
 }
