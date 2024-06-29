@@ -15,7 +15,7 @@ function AppLayout() {
 					<HiArrowUpOnSquare
 						style={{ cursor: 'pointer' }}
 						size={'36px'}
-						color='#73AD21'
+						color='rgba(206,42,124,255)'
 						onClick={() => {
 							setFlip((prev) => !prev);
 							navigate('upload');
@@ -25,7 +25,7 @@ function AppLayout() {
 					<HiCamera
 						style={{ cursor: 'pointer ' }}
 						size={'36px'}
-						color='#73AD21'
+						color='rgba(206,42,124,255)'
 						onClick={() => {
 							setFlip((prev) => !prev);
 							navigate('display');
