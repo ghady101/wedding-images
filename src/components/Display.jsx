@@ -8,7 +8,7 @@ function Display() {
 
 	if (error) return <div>{error.message}</div>;
 
-	function handleClick(url, type) {
+	function handleClick(url) {
 		// TODO
 		// const extension = url.split('.')[1];
 		// const image = name.concat('jpg');
@@ -27,7 +27,7 @@ function Display() {
 								<img src={image?.url} />
 								<button
 									className='download'
-									onClick={() => handleClick(image?.url, 'jpg')}
+									onClick={() => handleClick(image?.url)}
 								>
 									download
 								</button>
@@ -39,7 +39,7 @@ function Display() {
 								<video src={image?.url} controls />
 								<button
 									className='download'
-									onClick={() => handleClick(image?.url, 'mp4')}
+									onClick={() => handleClick(image?.url)}
 								>
 									download
 								</button>
